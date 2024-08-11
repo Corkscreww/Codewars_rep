@@ -1,3 +1,4 @@
+"""
 def count_bits(n):  # 8 kyu
     num = bin(n)
     print(f'заданное число - {n} = {num}')
@@ -9,7 +10,8 @@ def count_bits(n):  # 8 kyu
     print(f'количество единиц - {p}')
     return p
 
-
+"""
+"""
 def one_two_three(n):   # 6 kyu
     if n == 0:
         return [0, 0]
@@ -31,8 +33,8 @@ def one_two_three(n):   # 6 kyu
     return [int(n1), int(n2)]
 
 # print(one_two_three(54))
-
-
+"""
+"""
 def testit(s):    # 7 kyu Thinking and testing: 1. A or B
     rezult = ''
     if s == rezult:
@@ -46,19 +48,20 @@ def testit(s):    # 7 kyu Thinking and testing: 1. A or B
                 rezult = rezult + s[i]
     rezult = rezult + s[i]
     return rezult
-
-
+"""
+"""
 def testit1(s):
     print(s.split())
     return " ".join(e[:-1] + e[-1].upper() for e in s.split())
-
-
+"""
+"""
 def testit2(s):
     if len(s) == 1:
         return(s)
     return s[:len(s)//2]
 
-
+"""
+"""
 def bump_counter(ants):
     cnt = []
     for i in range(len(ants)):
@@ -133,25 +136,74 @@ def bump_counter(ants):
 ant = 'LRRLRL'
 print(bump_counter(ant))
 
+"""
+"""
+def check_three_and_two(array):     # 24.07.24 решил задачу
+    el = array[0]
+    kol = array.count(el)
 
+    if kol == 3:
+        while array.count(el):
+            array.remove(el)
+        if array[0] == array[1]:
+            return True
 
-# def check_three_and_two(array):     24.07.24 решил задачу
-#     el = array[0]
-#     kol = array.count(el)
-
-#     if kol == 3:
-#         while array.count(el):
-#             array.remove(el)
-#         if array[0] == array[1]:
-#             return True
-
-#     elif kol == 2:
-#         while array.count(el):
-#             array.remove(el)
-#         if array[0] == array[1] and array[1] == array[2]:
-#             return True
-#     return False
+    elif kol == 2:
+        while array.count(el):
+            array.remove(el)
+        if array[0] == array[1] and array[1] == array[2]:
+            return True
+    return False
 
 # print(check_three_and_two(["a", "a", "a", "b", "b"]))
 # print(check_three_and_two(["a", "c", "a", "c", "b"]))
 # print(check_three_and_two(["a", "a", "a", "a", "a"]))
+"""
+
+"""
+10.08.24 Good vs Evil - 6 kyu
+
+def good_vs_evil(good, evil):
+    good = [int(n) for n in good.split()]
+    evil = [int(n) for n in evil.split()]
+    good_points = {0: 1, 1: 2, 2: 3, 3: 3, 4: 4, 5: 10}
+    evil_points = {0: 1, 1: 2, 2: 2, 3: 2, 4: 3, 5: 5, 6: 10}
+    good_total, evil_total = 0, 0
+    for race in range(len(good)):
+        good_total += good[race] * good_points[race]
+        pass
+    for race in range(len(evil)):
+        evil_total += evil[race] * evil_points[race]
+        pass
+    if good_total > evil_total:
+        return 'Battle Result: Good triumphs over Evil'
+    elif good_total < evil_total:
+        return 'Battle Result: Evil eradicates all trace of Good'
+    else:
+        return 'Battle Result: No victor on this battle field'
+
+goodies = '1 1 1 1 1 1'
+evils = '1 1 1 1 1 1 1'
+print(good_vs_evil(goodies, evils))
+"""
+"""
+10.08.24 - First non-repeating character  -  5 kyu
+
+
+def first_non_repeating_letter(string):
+    st = list(string.lower())
+    cnts = list(map(lambda x: st.count(x), st))
+    gg = list(map(lambda x: x > 1, cnts))
+    pass
+    if all(gg):
+        pass
+        return ''
+    else:
+        for n in range(len(cnts)):
+            if cnts[n] == 1:
+                return string[n]
+
+word = 'XpxOeHJ.ppNpGZNnn2XOaiOAv3BqlJ:ZEbouRJcBC XYeI:c'
+print(first_non_repeating_letter(word))
+
+"""

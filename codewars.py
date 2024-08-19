@@ -207,3 +207,45 @@ word = 'XpxOeHJ.ppNpGZNnn2XOaiOAv3BqlJ:ZEbouRJcBC XYeI:c'
 print(first_non_repeating_letter(word))
 
 """
+
+"""
+15.08.24 - Last digit of a large number - 3 kyi"""
+"""
+def last_dig(power_list):
+    for i in range(len(power_list)):
+        power =
+    last_dig_list = []
+
+"""
+from datetime import time
+from itertools import cycle
+
+def kukushka(initial_time, n):
+    hr, mns = int(initial_time.split(':')[0]), int(initial_time.split(':')[1])
+    mins = [0 for _ in range(60)]
+    mins[15] = 1
+    mins[30] = 1
+    mins[45] = 1
+    minutes = cycle(mins)
+    if mns == 15 or mns == 30 or mns == 45:
+        n -= 1
+    if mns == 0:
+        n -= hr
+    for _ in range(mns):
+        next(minutes)
+    while n > 0:
+        mns += 1
+        if mns == 60:
+            mns = 0
+            if hr == 12:
+                hr = 1
+            else:
+                hr += 1
+            n -= hr
+        n -= next(minutes)
+    return time(hr, mns).strftime('%I:%M')
+
+
+
+
+print(kukushka('03:38', 19))
